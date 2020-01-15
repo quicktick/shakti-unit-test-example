@@ -1,0 +1,54 @@
+{
+  "name": "shakti-unit-test-example",
+  "version": "0.0.1",
+  "scripts": {
+    "ci": "yarn run lint:js && yarn run test",
+    "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check",
+    "format:js": "prettier --write \"{src,test}/**/*.js\"",
+    "lint": "yarn run lint:js",
+    "lint:js": "eslint ./src ./test --ext=js",
+    "lint:js:without:prettier": "yarn run lint:js -- --rule 'prettier/prettier: 0'",
+    "lint:watch": "nodemon --watch src --exec \"yarn run lint:without:prettier\"",
+    "lint:without:prettier": "yarn run lint:js:without:prettier",
+    "test": "NODE_OPTIONS=\"--experimental-modules --experimental-conditional-exports --no-warnings\" ava -v",
+    "test:watch": "nodemon -w src -w test --exec 'yarn run test'"
+  },
+  "dependencies": {
+    "lodash": "^4.17.12"
+  },
+  "devDependencies": {
+    "ava": "^2.4.0",
+    "ava-spec": "^1.1.1",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-config-prettier": "^2.1.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-prettier": "^2.0.1",
+    "husky": "^1.0.1",
+    "lint-staged": ">=8",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.2.2",
+    "shakti-node": "0.0.6",
+    "sort-package-json": "^1.15.0"
+  },
+  "engines": {
+    "node": ">= 13.4 < 14"
+  },
+  "engine-strict": true,
+  "lint-staged": {
+    "package.json": [
+      "sort-package-json",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
