@@ -17,5 +17,3 @@ isIntegerTestCases.forEach(({ input, expectedResult }) => {
     t.deepEqual(runShakti(`${loadType}${functionCallKcode}`), expectedResult)
   })
 })
-
-
