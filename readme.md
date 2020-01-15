@@ -1,4 +1,4 @@
-## Unit tests Shakti code
+## Shakti Unit Test Example
 
 [![CircleCI](https://circleci.com/gh/quicktick/shakti-unit-test-example.svg?style=svg)](https://circleci.com/gh/quicktick/shakti-unit-test-example)
 
