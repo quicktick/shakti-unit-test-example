@@ -1,6 +1,7 @@
 {
   "name": "shakti-unit-test-example",
   "version": "0.0.1",
+  "license" : "MIT",
   "scripts": {
     "ci": "yarn run lint:js && yarn run test",
     "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check",
